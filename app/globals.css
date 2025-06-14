@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 25 100% 55%; /* #FC8019 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 20%;
+    --destructive: 0 84% 60%; /* #E74C3C */
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 63% 42%; /* #27AE60 */
+    --success-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 25 100% 55%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 25 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 25 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom AuditX Styles */
+.auditx-gradient {
+  background: linear-gradient(135deg, #fc8019 0%, #ff9a3d 100%);
+}
+
+.auditx-shadow {
+  box-shadow: 0 4px 20px rgba(252, 128, 25, 0.15);
+}
+
+.auditx-hover {
+  transition: all 0.3s ease;
+}
+
+.auditx-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(252, 128, 25, 0.2);
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better spacing for mobile */
+  .mobile-spacing {
+    padding: 1rem;
+  }
+
+  /* Optimize text for mobile reading */
+  .mobile-text {
+    line-height: 1.6;
+  }
+
+  /* Prevent zoom on input focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Smooth scrolling for mobile */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbars on mobile for cleaner look */
+  .mobile-hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .mobile-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Better button spacing for touch */
+  .mobile-button-group button {
+    margin: 0.25rem;
+    min-height: 44px;
+  }
+
+  /* Optimize cards for mobile */
+  .mobile-card {
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  /* Better tab navigation for mobile */
+  .mobile-tabs {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 0.5rem;
+  }
+
+  /* Optimize modal/dialog for mobile */
+  .mobile-dialog {
+    margin: 0;
+    max-height: 90vh;
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* Better form layouts for mobile */
+  .mobile-form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .mobile-form-group input,
+  .mobile-form-group select,
+  .mobile-form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+  }
+
+  /* Optimize loading states for mobile */
+  .mobile-skeleton {
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Better pull-to-refresh indicator */
+  .mobile-pull-refresh {
+    padding-top: 2rem;
+    text-align: center;
+    color: #6b7280;
+  }
+
+  /* Optimize floating action buttons */
+  .mobile-fab {
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+
+  /* Better swipe gestures */
+  .mobile-swipeable {
+    touch-action: pan-x;
+  }
+
+  /* Optimize search bars for mobile */
+  .mobile-search {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 10;
+  }
+
+  /* Better empty states for mobile */
+  .mobile-empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .mobile-empty-state svg {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem;
+    color: #9ca3af;
+  }
+
+  /* Optimize progress indicators */
+  .mobile-progress {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* Better notification styles */
+  .mobile-notification {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Dark mode optimizations for mobile */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  .mobile-tabs {
+    background: #1f2937;
+    border-top-color: #374151;
+  }
+
+  .mobile-search {
+    background: #1f2937;
+    border-bottom-color: #374151;
+  }
+
+  .mobile-notification {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 768px) {
+  /* Better focus indicators */
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid #fc8019;
+    outline-offset: 2px;
+  }
+
+  /* Improve contrast for better readability */
+  .mobile-high-contrast {
+    color: #111827;
+  }
+
+  /* Better error states */
+  .mobile-error {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Success states */
+  .mobile-success {
+    color: #059669;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+}
+
+/* Performance optimizations */
+@media (max-width: 768px) {
+  /* Reduce animations on slower devices */
+  @media (prefers-reduced-motion: reduce) {
+    .auditx-hover {
+      transition: none;
+    }
+
+    .mobile-skeleton {
+      animation: none;
+    }
+  }
+
+  /* Optimize images for mobile */
+  .mobile-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Better video handling */
+  .mobile-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
